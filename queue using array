@@ -1,0 +1,54 @@
+class ArrayQueue {
+    private:
+    int *queue;
+    int front, rear;
+    int n;
+public:
+    ArrayQueue(int size = 100) {
+    
+    n = size;
+        queue = new int[n];
+        front = -1;
+        rear = -1;}
+    
+    void push(int x) {
+   if (rear==n-1) {
+    
+   cout<<"queue overflow"<<endl;
+   return;
+   }
+   if(front==-1) front=0;
+    queue[++rear]=x;
+    
+    }
+    
+    int pop() {
+  if (isEmpty()) {
+            cout << "Queue Underflow" << endl;
+            return -1; // error value
+        }
+
+        int item = queue[front];
+
+        if (front == rear) {
+            
+            front = rear = -1;
+        } else {
+            front++;
+        }
+
+        return item;
+    }
+    
+    int peek() {
+     if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return queue[front];
+    }
+    
+    bool isEmpty() {
+  return (front == -1);
+    }
+};
