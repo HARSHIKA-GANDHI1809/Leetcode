@@ -1,0 +1,41 @@
+class ArrayStack {
+  private:
+    int *stack;
+    int top;
+    int n;
+public:
+    ArrayStack(int size = 100) {
+       n = size;
+        stack = new int[n];
+        top = -1;
+    }
+    
+    void push(int x) {
+      if(top==n-1)
+     cout<<"overflow"<<endl;
+      else{
+        stack[++top] = x;
+            cout << x << " pushed" << endl;
+      }
+    }
+    
+    int pop() {
+  if(top==-1)
+ cout<<"underflow";
+  else{
+     int item=stack[top--];
+   
+     return item;
+
+  }
+    }
+    
+    int peek() {
+    if (top==-1) return -1;
+    else return stack[top];
+    }
+    
+    bool isEmpty() {
+    return top==-1;
+    }
+};
